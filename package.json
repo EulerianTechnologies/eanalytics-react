@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/EulerianTechnologies/eanalytics-js",
   "devDependencies": {
+    "jest": "^26.4.2",
     "typescript": "^4.0.3"
   }
 }
