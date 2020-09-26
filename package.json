@@ -1,0 +1,23 @@
+{
+  "name": "eanalytics",
+  "version": "0.1.0",
+  "description": "Eulerian Technologies Analytics javascript library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EulerianTechnologies/eanalytics-js.git"
+  },
+  "keywords": [
+    "Analytics"
+  ],
+  "author": "François Rouault",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EulerianTechnologies/eanalytics-js/issues"
+  },
+  "homepage": "https://github.com/EulerianTechnologies/eanalytics-js"
+}
