@@ -1,5 +1,10 @@
-var { sum } = require("../dist/index");
+var eanalytics = require("../dist/index");
 
-test("adds 1 + 2 to equal 3", () => {
-  expect(sum(1, 2)).toBe(3);
+test("eulerian is truthy", () => {
+  expect(eanalytics).toBeTruthy();
+});
+
+test("eulerian can initialize with host", () => {
+  eanalytics.initialize("ett.host.com");
+  expect(eanalytics.host).toBe("ett.host.com");
 });
