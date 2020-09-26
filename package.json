@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/EulerianTechnologies/eanalytics-js/issues"
   },
-  "homepage": "https://github.com/EulerianTechnologies/eanalytics-js"
+  "homepage": "https://github.com/EulerianTechnologies/eanalytics-js",
+  "devDependencies": {
+    "typescript": "^4.0.3"
+  }
 }
