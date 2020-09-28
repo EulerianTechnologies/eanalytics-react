@@ -1,4 +1,4 @@
-var eanalytics = require("../dist/index");
+var { eanalytics } = require("../dist/index");
 
 test("eulerian is truthy", () => {
   expect(eanalytics).toBeTruthy();
