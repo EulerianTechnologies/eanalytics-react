@@ -1,4 +1,4 @@
-const EAnalytics = require("../../dist/index");
+import EAnalytics from "../eanalytics";
 
 test("eulerian is truthy", () => {
   expect(EAnalytics).toBeTruthy();

@@ -1,4 +1,4 @@
-const EAnalytics = require("../../dist/index");
+import EAnalytics from "../eanalytics";
 
 test("EAProperties initialize with a path", () => {
   const eaprop = EAnalytics.eaproperties("/path");
