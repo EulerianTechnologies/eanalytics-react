@@ -2,11 +2,15 @@
   "name": "eanalytics",
   "version": "0.2.0",
   "description": "Eulerian Technologies Analytics javascript library",
+  "files": [
+    "dist/**/*"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build-watch": "npm run build -- -watch",
     "test-watch": "npm t -- --watchAll",
+    "check-package": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
     "build": "rm -rf ./dist && tsc",
     "test": "jest"
   },
