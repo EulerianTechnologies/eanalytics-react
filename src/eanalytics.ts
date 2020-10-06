@@ -19,6 +19,15 @@ const EAnalytics = {
     const _ea = ea(host);
     document.head.insertBefore(_ea.script(), document.head.firstElementChild);
   },
+
+  /**
+   * Call EA_collector with the given data param.
+   * @param data The data to collect. Example ["path", "NOM_DE_LA_PAGE", "uid", "IDENTIFIANT_DE_L_INTERNAUTE"].
+   */
+  track: (data: string[]) => {
+    // @ts-ignore
+    window.EA_collector(data);
+  },
 };
 
 export default EAnalytics;

@@ -43,3 +43,18 @@ describe("Initialize function", () => {
     expect(document.head.firstElementChild.innerHTML).not.toBe("dummy");
   });
 });
+
+describe("Track function", () => {
+  test("call window.EA_collector function", (done) => {
+    // Given
+    // @ts-ignore
+    global.window.EA_collector = (data: any) => {
+      // Then
+      expect(data).toEqual(["hello", "world"]);
+      done();
+    };
+
+    // When
+    EAnalytics.track(["hello", "world"]);
+  });
+});
