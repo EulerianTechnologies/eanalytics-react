@@ -1,6 +1,6 @@
 {
   "name": "eanalytics",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "description": "Eulerian Technologies Analytics javascript library",
   "files": [
     "dist/**/*"
