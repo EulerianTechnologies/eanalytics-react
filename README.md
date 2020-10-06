@@ -3,14 +3,14 @@
 ## Installation
 
 ```console
-npm install eanalytics --save
+npm install eanalytics-react --save
 ```
 
 ## Usage
 
 ```js
 import React from "react";
-import EAnalytics from "eanalytics";
+import EAnalytics from "eanalytics-react";
 
 EAnalytics.initialize("domain.client.tld");
 ```
@@ -19,7 +19,7 @@ EAnalytics.initialize("domain.client.tld");
 
 ```js
 import React from "react";
-import EAnalytics from "eanalytics";
+import EAnalytics from "eanalytics-react";
 
 function AddToCartButton() {
   const handleClick = (e) => {
