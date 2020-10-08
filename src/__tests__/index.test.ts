@@ -56,6 +56,20 @@ describe("Track function", () => {
     // Then do nothing
   });
 
+  test("does nothing when data is undefined", () => {
+    // Given
+    // @ts-ignore
+    global.window.EA_collector = () => {};
+    // @ts-ignore
+    const spy = jest.spyOn(global.window, "EA_collector");
+
+    // When
+    expect(EAnalytics.track(undefined));
+
+    // Then do nothing
+    expect(spy).not.toBeCalled();
+  });
+
   test("call window.EA_collector function", (done) => {
     // Given
     // @ts-ignore

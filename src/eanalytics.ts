@@ -27,7 +27,7 @@ const EAnalytics = {
   track: (data: string[]) => {
     // @ts-ignore
     const eaTrackFn = window.EA_collector;
-    if (eaTrackFn) {
+    if (eaTrackFn && data) {
       eaTrackFn(data);
     }
   },
