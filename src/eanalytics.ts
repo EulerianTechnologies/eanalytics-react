@@ -1,4 +1,4 @@
-const ea = (host: string) => {
+const _EATag = (host: string) => {
   const script = () => {
     const script = document.createElement("script");
     script.innerHTML = EAnalytics._snippet(host);
@@ -16,8 +16,8 @@ const EAnalytics = {
    * @param host The host provided by Eulerian.
    */
   initialize: (host: string) => {
-    const _ea = ea(host);
-    document.head.insertBefore(_ea.script(), document.head.firstElementChild);
+    const script = _EATag(host).script();
+    document.head.insertBefore(script, document.head.firstElementChild);
   },
 
   /**
