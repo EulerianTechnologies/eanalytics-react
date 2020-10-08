@@ -10,19 +10,36 @@ beforeEach(() => {
   global.window = dom.window;
 });
 
+describe("Snippet", () => {
+  test("Is correct", () => {
+    // Given
+    const host = "et1.eulerian.com";
+
+    // When
+    const snippet = EAnalytics._snippet(host);
+
+    // Then
+    expect(snippet).toBe(
+      "(function(e,a){var i=e.length,y=5381,k='script',s=window,v=document,o=v.createElement(k);for(;i;){i-=1;y=(y*33)^e.charCodeAt(i)}y='_EA_'+(y>>>=0);(function(e,a,s,y){s[a]=s[a]||function(){(s[y]=s[y]||[]).push(arguments);s[y].eah=e;};}(e,a,s,y));i=new Date/1E7|0;o.ea=y;y=i%26;o.async=1;o.src='//'+e+'/'+String.fromCharCode(97+y,122-y,65+y)+(i%1E3)+'.js?2';s=v.getElementsByTagName(k)[0];s.parentNode.insertBefore(o,s);})('et1.eulerian.com', 'EA_collector');"
+    );
+  });
+});
+
 describe("Initialize function", () => {
   test("inserts EA tag in <head>", () => {
     // Given
-    const host = "et1.eulerian.com";
+    const host = "host.com";
+    const spy = jest
+      .spyOn(EAnalytics, "_snippet")
+      .mockImplementation((host) => `hello ${host}`);
 
     // When
     EAnalytics.initialize(host);
 
     // Then
     expect(document.head.children.length).toBe(1);
-    expect(document.head.firstElementChild.innerHTML).toBe(
-      "(function(e,a){var i=e.length,y=5381,k='script',s=window,v=document,o=v.createElement(k);for(;i;){i-=1;y=(y*33)^e.charCodeAt(i)}y='_EA_'+(y>>>=0);(function(e,a,s,y){s[a]=s[a]||function(){(s[y]=s[y]||[]).push(arguments);s[y].eah=e;};}(e,a,s,y));i=new Date/1E7|0;o.ea=y;y=i%26;o.async=1;o.src='//'+e+'/'+String.fromCharCode(97+y,122-y,65+y)+(i%1E3)+'.js?2';s=v.getElementsByTagName(k)[0];s.parentNode.insertBefore(o,s);})('et1.eulerian.com', 'EA_collector');"
-    );
+    expect(document.head.firstElementChild.innerHTML).toBe("hello host.com");
+    spy.mockRestore();
   });
 
   test("inserts EA tag at position 0", () => {

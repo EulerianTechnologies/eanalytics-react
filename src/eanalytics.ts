@@ -1,16 +1,16 @@
-const eaTag = (host: string) =>
-  `(function(e,a){var i=e.length,y=5381,k='script',s=window,v=document,o=v.createElement(k);for(;i;){i-=1;y=(y*33)^e.charCodeAt(i)}y='_EA_'+(y>>>=0);(function(e,a,s,y){s[a]=s[a]||function(){(s[y]=s[y]||[]).push(arguments);s[y].eah=e;};}(e,a,s,y));i=new Date/1E7|0;o.ea=y;y=i%26;o.async=1;o.src='//'+e+'/'+String.fromCharCode(97+y,122-y,65+y)+(i%1E3)+'.js?2';s=v.getElementsByTagName(k)[0];s.parentNode.insertBefore(o,s);})('${host}', 'EA_collector');`;
-
 const ea = (host: string) => {
   const script = () => {
     const script = document.createElement("script");
-    script.innerHTML = eaTag(host);
+    script.innerHTML = EAnalytics._snippet(host);
     return script;
   };
   return { script };
 };
 
 const EAnalytics = {
+  _snippet: (host: string) =>
+    `(function(e,a){var i=e.length,y=5381,k='script',s=window,v=document,o=v.createElement(k);for(;i;){i-=1;y=(y*33)^e.charCodeAt(i)}y='_EA_'+(y>>>=0);(function(e,a,s,y){s[a]=s[a]||function(){(s[y]=s[y]||[]).push(arguments);s[y].eah=e;};}(e,a,s,y));i=new Date/1E7|0;o.ea=y;y=i%26;o.async=1;o.src='//'+e+'/'+String.fromCharCode(97+y,122-y,65+y)+(i%1E3)+'.js?2';s=v.getElementsByTagName(k)[0];s.parentNode.insertBefore(o,s);})('${host}', 'EA_collector');`,
+
   /**
    * Insert Eulerian Analytics tag in the <head> of the current document.
    * @param host The host provided by Eulerian.
