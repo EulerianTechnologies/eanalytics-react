@@ -45,6 +45,17 @@ describe("Initialize function", () => {
 });
 
 describe("Track function", () => {
+  test("does nothing when window.EA_collector is undefined", () => {
+    // Given
+    // @ts-ignore
+    global.window.EA_collector = undefined;
+
+    // When
+    expect(EAnalytics.track([]));
+
+    // Then do nothing
+  });
+
   test("call window.EA_collector function", (done) => {
     // Given
     // @ts-ignore
